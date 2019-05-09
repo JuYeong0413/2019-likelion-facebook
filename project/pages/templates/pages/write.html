@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<form action="{% url 'success' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="d-flex row-container justify-content-center main-container">
+        <div class="mb-3">
+            <label class="textarea-label">* 작성자</label>
+            <input class="form-control" type="text" placeholder="{{ name }}" readonly>
+            <input type="hidden" name="name" value="{{ name }}">
+            <br>
+            
+            <label for="validationTextarea" class="textarea-label">* 게시글 내용</label>
+            <textarea rows="4" class="form-control" name="content" id="validationTextarea" placeholder="무슨 생각을 하고 계신가요?" required></textarea>
+            
+            <br>
+            
+            <label class="textarea-label">* 사진 첨부하기</label>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" name="file" id="customFile" accept="image/*">
+                <label class="custom-file-label" for="customFile">Choose file</label>
+            </div>
+            <br><br>
+            <div class="d-flex row-container justify-content-center main-container">
+                <input type="submit" class="btn btn-outline-info btn-block" id="upload" value="공유하기"></button><br>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+// Add the following code if you want the name of the file appear on select
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>
+{% endblock %}

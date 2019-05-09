@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="d-flex flex-column justify-content-center main-container">
+    <p>
+        <h2 style="font-family: S-CoreDream-3Light; font-weight: bold;"><center>게시글이 작성되었습니다.</center></h2>
+    </p>
+    
+    <form action="{% url 'newsfeed' %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="name" value="{{ name }}">
+        <center><input type="submit" class="btn btn-outline-primary" id="newsfeed" value="뉴스피드에서 확인하기"></center>
+    </form>
+</div>
+{% endblock %}

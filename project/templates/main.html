@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="d-flex justify-content-center main-container">
+    <div class="d-flex flex-column justify-content-center">
+        <img src="{% static 'images/profile.jpg' %}" class="img-thumbnail">
+        <br>
+        
+        <form method="POST" class="was-validated">
+            {% csrf_token %}
+            <div class="form-group row col-xs-2 justify-content-center">
+                <div class="col-xs-2 mb-3">
+                    <input type="text" class="form-control is-invalid" name="name" placeholder="이름을 입력해주세요" required>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <input type="submit" class="btn btn-outline-primary" id="newsfeed" formaction="{% url 'newsfeed' %}" value="뉴스피드 확인"> &nbsp; &nbsp; &nbsp; &nbsp;
+                <input type="submit" class="btn btn-outline-primary" id="write" formaction="{% url 'write' %}" value="게시물 작성하기">
+            </div>
+        </form>
+        
+    </div>
+</div>
+{% endblock %}

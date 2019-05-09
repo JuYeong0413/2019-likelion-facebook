@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="d-flex row-container main-container">
+    <div class="welcome">
+        <form action="{% url 'write' %}" method="POST">
+            {% csrf_token %}
+            <p>
+                <h4><b>{{ name }}</b>님, 어서오세요!</h4>
+                <input type="hidden" name="name" value="{{ name }}">
+                <input type="submit" class="btn btn-outline-primary btn-block" id="write" value="게시물 작성하기">
+            </p>
+        </form>
+    </div>
+</div>
+{% for item in posts %}
+<div class="d-flex row-container main-container newsfeed-text">
+    <div class="card w-100">
+        <h5 class="card-header">{{ item.name }}</h5>
+        <div class="card-body">
+            {% if item.img %}
+                <img src="{{ item.img.url }}" class="card-img-top post-img" alt="">
+            {% endif %}
+            <p class="card-text newsfeed-content">{{ item.content|linebreaks }}</p>
+            <h6 class="text-muted">{{ item.created_at }}</h6>
+        </div>
+        
+
+            <div class="card-footer">
+                <h6 class="text-muted"><b>{{ item.comments.count }}</b> Comments</h6>
+                <!--이제 해당 글의 댓글들을 띄워줘야 하니까-->
+                {% if item.comments %}
+                    {% for comment in item.comments %}
+                        <h6><b>{{ comment.writer }}</b> : {{ comment.message }}</h6>
+                    {% endfor %}
+                {% endif %}
+                
+            <form action="{% url 'create_comment' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="post" value="{{ item.pk }}">
+                <input type="hidden" name="writer" value="{{ name }}">
+                <input type="hidden" name="name" value="{{ name }}">
+                <div class="d-flex column-container comment-container">
+                    <input type="text" class="form-control form-control-sm write-comment comment-container" name="message"> &nbsp; &nbsp;
+                    <input type="submit" class="btn btn-outline-primary btn-xs" value="입력">
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<button type="button" onclick="topFunction()" class="scrollBtn" id="myBtn">Top</button><br><br>
+{% endblock %}

@@ -1,0 +1,109 @@
+@font-face {
+    font-family: 'UhBeeYeonie';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeeYeonie.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NanumBarunpen';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumBarunpen.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.img-thumbnail {
+    width: 300px;
+    height: 300px;
+}
+
+.main-container {
+    margin-top: 20px;
+}
+
+.navbar {
+    margin-top: 20px;
+}
+
+.btn, .form-control {
+    font-family: "UhBeeYeonie";
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.textarea-label {
+    font-family: "S-CoreDream-3Light";
+    font-size: 18px;
+}
+
+.newsfeed-text {
+    font-family: "NanumBarunpen";
+}
+
+.welcome {
+    font-family: "S-CoreDream-3Light";
+    font-size: 18px;
+}
+
+.scrollBtn {
+    display: inline-block;
+    position: absolute;
+    font-family: "UhBeeYeonie";
+}
+
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 999;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #17a2b8;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+  font-family: "UhBeeYeonie";
+}
+
+#myBtn:hover {
+  background-color: gray;
+}
+
+.container-success {
+    font-family: "S-CoreDream-3Light";
+    margin-top: 50px;
+}
+
+.write-comment {
+    font-family: "NanumBarunpen";
+    font-size: 25px;
+}
+
+.newsfeed-text {
+    font-size: 20px;
+}
+
+.comment-container {
+    height: 1.5em;
+    font-size: 18px;
+}
+
+.btn-xs {
+    font-size: 15px;
+    padding: .1rem .75rem;
+}
+
+.post-img {
+    width: 250px;
+    height: auto;
+}
